@@ -40,40 +40,49 @@ export default function RecentSwiper({ recentSearches, isLoading, handleRecent }
           return (
             <SwiperSlide key={`recent-search-${index}-slider`}>
               <ButtonBase className="swiper-button" onClick={() => handleRecent(places)} disabled={isLoading}>
-                <Stack
-                  direction="row"
-                  spacing={1}
-                  divider={
-                    <Box display="flex" justifyContent="center" alignItems="center" width="4px" height="20px">
-                      <Box height="13px" width="1.3px" bgcolor="darkgray" />
-                    </Box>
-                  }
-                >
-                  <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#FF8717' }}>
-                    📅 {schedule}
-                  </Typography>
-                  <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#008080' }}>
-                    📍 {region}
-                  </Typography>
-                  <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#6A5ACD' }}>
-                    🎨 {theme}
-                  </Typography>
-                </Stack>
-                <Stack mt={1.5} spacing={1}>
-                  {places.map((place, idx) => {
-                    if (idx > 2) return null;
-                    return (
-                      <Box key={`recent-search-${index}-place-${idx}`}>
-                        <Typography variant="body2" sx={{ fontWeight: 'bold' }} noWrap>
-                          {place.name}
-                        </Typography>
-                        <Typography variant="body2" sx={{ color: 'gray' }} noWrap>
-                          {place.address}
-                        </Typography>
-                      </Box>
-                    );
-                  })}
-                </Stack>
+                <Box sx={{ width: '100%', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <Box sx={{ maxWidth: 'calc(100% - 48px)' }}>
+                    <Stack
+                      direction="row"
+                      spacing={1}
+                      divider={
+                        <Box display="flex" justifyContent="center" alignItems="center" width="4px" height="20px">
+                          <Box height="13px" width="1.3px" bgcolor="darkgray" />
+                        </Box>
+                      }
+                    >
+                      <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#FF8717' }}>
+                        📅 {schedule}
+                      </Typography>
+                      <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#008080' }}>
+                        📍 {region}
+                      </Typography>
+                      <Typography variant="subtitle1" style={{ fontWeight: 'bold', color: '#6A5ACD' }}>
+                        🎨 {theme}
+                      </Typography>
+                    </Stack>
+                    <Stack mt={1.5} spacing={1}>
+                      {places.map((place, idx) => {
+                        if (idx > 2) return null;
+                        return (
+                          <Box key={`recent-search-${index}-place-${idx}`}>
+                            <Typography variant="body2" sx={{ fontWeight: 'bold' }} noWrap>
+                              {place.name}
+                            </Typography>
+                            <Typography variant="body2" sx={{ color: 'gray' }} noWrap>
+                              {place.address}
+                            </Typography>
+                          </Box>
+                        );
+                      })}
+                    </Stack>
+                  </Box>
+                  <Box sx={{ bgcolor: 'primary.main', p: 1, borderRadius: '50%' }}>
+                    <Typography variant="h6" sx={{ color: '#FFF' }}>
+                      GO
+                    </Typography>
+                  </Box>
+                </Box>
               </ButtonBase>
             </SwiperSlide>
           );
