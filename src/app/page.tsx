@@ -20,7 +20,6 @@ export default function Home() {
   const router = useRouter();
 
   const { recentSearches } = usePlaceStore();
-  console.log('###### recent: ', recentSearches);
 
   // 로딩 상태
   const [loading, setLoading] = React.useState<boolean>(false);
